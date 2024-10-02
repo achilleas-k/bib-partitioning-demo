@@ -20,3 +20,9 @@ This feature should be available in the upstream (`centos-bootc`) image soon.
 Source: [`01-plain`](01-plain)
 
 Plain partitioning (i.e. non-LVM) example.  Adds a data partition, mounted at `/var/data`, and sets the size for the root partition to 3 GiB.
+
+## Part 2: LVM partitioning
+
+Source [`02-lvm`](02-lvm)
+
+LVM partitioning example.  Creates a 10 GiB Volume Group named `centosvg` and creates two Logical Volumes, one for root and another for `/var/data`.

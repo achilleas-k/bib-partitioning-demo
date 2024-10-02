@@ -1,0 +1,27 @@
+# Add a user account so we can log in and verify without needing to set up a
+# cloud-init ISO
+[[customizations.user]]
+name = "demo"
+password = "demo-password"
+groups = ["wheel"]
+
+
+# Define the LVM Volume Group name and size
+[[customizations.partitioning.lvm.volume_groups]]
+name = "centosvg"
+minsize = 10737418240  # 10 GiB
+
+# Add a data Logical Volume to the group
+[[customizations.partitioning.lvm.volume_groups.logical_volumes]]
+name = "datalv"
+mountpoint = "/var/data"
+label = "data"
+minsize = "1 GiB"
+
+# The root Logical Volume is created automatically if not defined, but setting
+# it lets us set the name, label, and size explicitly
+[[customizations.partitioning.lvm.volume_groups.logical_volumes]]
+name = "rootlv"
+mountpoint = "/"
+label = "system"
+minsize = "2 GiB"
