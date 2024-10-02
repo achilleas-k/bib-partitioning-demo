@@ -1,0 +1,18 @@
+# Add a user account so we can log in and verify without needing to set up a
+# cloud-init ISO
+[[customizations.user]]
+name = "demo"
+password = "demo-password"
+groups = ["wheel"]
+
+# Set a size for the root partition
+[[customizations.partitioning.plain.filesystems]]
+mountpoint = "/"
+type = "ext4"
+minsize = "3 GiB"
+
+# Add an extra data partition
+[[customizations.partitioning.plain.filesystems]]
+mountpoint = "/var/data"
+type = "xfs"
+minsize = "1 GiB"

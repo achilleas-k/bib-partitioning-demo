@@ -14,3 +14,9 @@ quay.io/achilleas/bootc-image-builder:demo
 ```
 
 This feature should be available in the upstream (`centos-bootc`) image soon.
+
+## Part 1: Plain partitioning
+
+Source: [`01-plain`](01-plain)
+
+Plain partitioning (i.e. non-LVM) example.  Adds a data partition, mounted at `/var/data`, and sets the size for the root partition to 3 GiB.
