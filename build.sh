@@ -8,8 +8,10 @@ set -x
 path="${1}"
 
 sudo -v
-sudo podman pull quay.io/achilleas/bootc-image-builder:demo
-sudo podman pull quay.io/centos-bootc/centos-bootc:stream9
+builder=quay.io/achilleas/bootc-image-builder:demo
+baseimg=quay.io/achilleas/centos-bootc:stream9-app
+sudo podman pull ${builder}
+sudo podman pull ${baseimg}
 
 mkdir -vp "${path}/output" ./rpmmd ./store
 
@@ -20,7 +22,6 @@ sudo podman run --privileged -it --rm \
     -v "./${path}/config.toml:/config.toml" \
     -v ./rpmmd:/rpmmd \
     -v ./store:/store \
-    quay.io/achilleas/bootc-image-builder:demo \
+    ${builder} \
     --type qcow2 \
-    --local \
-    quay.io/centos-bootc/centos-bootc:stream9
+    ${baseimg}
