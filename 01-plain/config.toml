@@ -15,4 +15,13 @@ minsize = "3 GiB"
 [[customizations.partitioning.plain.filesystems]]
 mountpoint = "/var/data"
 type = "xfs"
+minsize = "2 GiB"
+label = "data"
+
+# Add an app partition with a top-level mountpoint.
+# Requires derived container.
+[[customizations.partitioning.plain.filesystems]]
+mountpoint = "/app"
+type = "xfs"
 minsize = "1 GiB"
+labal = "app"

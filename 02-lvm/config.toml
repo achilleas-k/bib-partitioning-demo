@@ -17,6 +17,7 @@ name = "datalv"
 mountpoint = "/var/data"
 label = "data"
 minsize = "1 GiB"
+type = "xfs"
 
 # The root Logical Volume is created automatically if not defined, but setting
 # it lets us set the name, label, and size explicitly
@@ -25,3 +26,13 @@ name = "rootlv"
 mountpoint = "/"
 label = "system"
 minsize = "2 GiB"
+type = "ext4"
+
+# Add an app Logical Volume with a top-level mountpoint.
+# Requires derived container.
+[[customizations.partitioning.lvm.volume_groups.logical_volumes]]
+mountpoint = "/app"
+type = "xfs"
+minsize = "1 GiB"
+label = "app"
+name = "applv"
