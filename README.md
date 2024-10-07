@@ -18,6 +18,8 @@ quay.io/achilleas/bootc-image-builder:demo
 
 This feature should be available in the upstream (`centos-bootc`) image soon.
 
+To build the image, I'll be using a container derived from `quay.io/centos-bootc/centos-bootc:stream9`.  This image is created using the [Containerfile](Containerfile) in this repository and is currently available at `quay.io/achilleas/centos-bootc:stream9-app`.
+
 ## Part 1: Plain partitioning
 
 Source: [`01-plain`](01-plain)
